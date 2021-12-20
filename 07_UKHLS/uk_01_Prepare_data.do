@@ -128,7 +128,7 @@ foreach w of numlist 19/`last'  {
 *** BHPS
 foreach w of global BHPSwaves {
 	local waveno=strpos("abcdefghijklmnopqrstuvwxyz","`w'")
-	use "$ukhls_in/bhps_w`waveno'/b`w'_hhresp", clear  
+	use "$ukhls_in/bhps/b`w'_hhresp", clear  
 		rename b`w'_* *
 		gen wave=`waveno'
 		gen uk_ver = "bhps"
@@ -139,7 +139,7 @@ foreach w of global BHPSwaves {
 *** UKHLS
 foreach w of global UKHLSwaves_bh {
 	local waveno=strpos("abcdefghijklmnopqrstuvwxyz","`w'")
-	use  "$ukhls_in/ukhls_w`waveno'/`w'_hhresp", clear
+	use  "$ukhls_in/ukhls/`w'_hhresp", clear
 		rename `w'_* *
 		// generate a variable which records the wave number + 18 
 		gen wave=`waveno'+18
