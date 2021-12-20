@@ -41,7 +41,7 @@ global UKHLSwaves_bh = substr(c(alpha), 1,  ($ukhls_w *2) )		// letters identify
 *** BHPS
 foreach w of global BHPSwaves {
 	local waveno=strpos("abcdefghijklmnopqrstuvwxyz","`w'")
-	use "$ukhls_in\bhps_w`waveno'\b`w'_indresp", clear
+	use "$ukhls_in\bhps\b`w'_indresp", clear
 		rename b`w'_* *
 		gen wave=`waveno'
 		gen uk_ver = "bhps"
@@ -52,7 +52,7 @@ foreach w of global BHPSwaves {
 *** UKHLS
 foreach w of global UKHLSwaves_bh {
 	local waveno=strpos("abcdefghijklmnopqrstuvwxyz","`w'")
-	use  "$ukhls_in/ukhls_w`waveno'/`w'_indresp", clear
+	use  "$ukhls_in/ukhls/`w'_indresp", clear
 		rename `w'_* *
 		// generate a variable which records the wave number + 18 
 		gen wave=`waveno'+18
